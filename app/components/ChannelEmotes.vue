@@ -34,17 +34,21 @@ const parsedParts = computed(() => {
 </script>
 
 <template>
-  <template v-for="(part, index) in parsedParts" :key="index">
-    <template v-if="typeof part === 'string'">{{ part }}</template>
-    <UPopover v-else-if="popover" mode="hover" :content="{ side: 'top' }" arrow>
-      <UButton variant="link" class="p-0 inline-block align-middle">
-        <component :is="part" />
-      </UButton>
-      <template #content>
-        {{ part.props!.alt }}
+  <div class="channel-emotes">
+    <template v-for="(part, index) in parsedParts" :key="index">
+      <template v-if="typeof part === 'string'">
+        <Twemojify :text="part" />
       </template>
-    </UPopover>
-    <component :is="part" v-else class="inline-block align-middle" :title="part.props!.alt" />
-    <template v-if="index < parsedParts.length - 1">{{ ' ' }}</template>
-  </template>
+      <UPopover v-else-if="popover" mode="hover" :content="{ side: 'top' }" arrow>
+        <UButton variant="link" class="p-0 inline-block align-middle">
+          <component :is="part" />
+        </UButton>
+        <template #content>
+          {{ part.props!.alt }}
+        </template>
+      </UPopover>
+      <component :is="part" v-else class="inline-block align-middle" :title="part.props!.alt" />
+      <template v-if="index < parsedParts.length - 1">{{ ' ' }}</template>
+    </template>
+  </div>
 </template>
