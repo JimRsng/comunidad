@@ -19,7 +19,11 @@ export default defineTask({
       twitchLogin: tables.users.twitchLogin,
       twitchDisplay: tables.users.twitchDisplay,
       twitchProfileImage: tables.users.twitchProfileImage
-    }).from(tables.users).orderBy(asc(tables.users.updatedAt)).limit(100).all();
+    }).from(tables.users).where(
+      exists(db.select({
+        twitchId: tables.riotAccounts.twitchId
+      }).from(tables.riotAccounts).where(eq(tables.riotAccounts.twitchId, tables.users.twitchId)))
+    ).orderBy(asc(tables.users.updatedAt)).limit(100).all();
     const userIds = data.map(d => d.twitchId);
     const newUsersData = await twitch.users.getUsersByIds(userIds);
 
