@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { TableColumn } from "@nuxt/ui";
-import type { Row, SortDirection, TableMeta } from "@tanstack/vue-table";
+import type { Row, SortDirection, Table, TableMeta } from "@tanstack/vue-table";
 import { getPaginationRowModel } from "@tanstack/vue-table";
 import { refDebounced } from "@vueuse/core";
 
@@ -33,7 +33,7 @@ const calculateWinRate = (wins?: number | null, losses?: number | null): number 
 
 const noSpaced = (str?: string | null) => str?.replace(/\s+/g, "")?.toLowerCase() || "";
 
-const table = useTemplateRef("table");
+const table = useTemplateRef<{ tableApi: Table<JimTableData> }>("table");
 
 const searchInput = ref("");
 const debouncedSearch = refDebounced(searchInput, 300);
@@ -201,18 +201,20 @@ const preferences = ref({
 });
 
 watch(() => preferences.value.hideUnrankeds, (newValue) => {
+  if (!table.value?.tableApi) return;
   localStorage.setItem("pref-hide-unrankeds", String(newValue));
-  const eloColumn = table.value?.tableApi?.getColumn("elo");
+  const eloColumn = table.value.tableApi.getColumn("elo");
   if (eloColumn) {
     eloColumn.setFilterValue(newValue ? true : undefined);
   }
   // reset to first page when toggling
-  table.value?.tableApi?.setPageIndex(0);
+  table.value.tableApi.setPageIndex(0);
 });
 
 watch([debouncedSearch, () => preferences.value.country], ([search, country]) => {
-  table.value?.tableApi?.getColumn("account")?.setFilterValue({ country, search: noSpaced(search) });
-  table.value?.tableApi?.setPageIndex(0);
+  if (!table.value?.tableApi) return;
+  table.value.tableApi.getColumn("account")?.setFilterValue({ country, search: noSpaced(search) });
+  table.value.tableApi.setPageIndex(0);
 });
 
 onMounted(() => {
@@ -220,8 +222,8 @@ onMounted(() => {
   preferences.value.hideUnrankeds = hideUnrankeds === "true";
 
   nextTick(() => {
-    if (preferences.value.hideUnrankeds) {
-      table.value?.tableApi?.getColumn("elo")?.setFilterValue(true);
+    if (preferences.value.hideUnrankeds && table.value?.tableApi) {
+      table.value.tableApi.getColumn("elo")?.setFilterValue(true);
     }
   });
 });
@@ -229,6 +231,15 @@ onMounted(() => {
 const pagination = ref({
   pageIndex: 0,
   pageSize: 100
+});
+
+const paginationDisplay = computed(() => {
+  if (!table.value?.tableApi) return { start: 0, end: 0, total: 0 };
+  const pageIndex = table.value.tableApi.getState().pagination.pageIndex || 0;
+  const total = table.value.tableApi.getFilteredRowModel().rows.length || 0;
+  const start = Math.min(pageIndex * pagination.value.pageSize + 1, total);
+  const end = Math.min((pageIndex + 1) * pagination.value.pageSize, total);
+  return { start, end, total };
 });
 
 const setPage = (page: number) => {
@@ -315,15 +326,15 @@ const countriesSetItems = Array.from(countriesSet).map(country => ({
           getPaginationRowModel: getPaginationRowModel(),
         }"
       />
-      <div class="flex flex-col lg:flex-row justify-between items-center px-4 py-3.5 border-t border-accented gap-2">
+      <div v-if="table" class="flex flex-col lg:flex-row justify-between items-center px-4 py-3.5 border-t border-accented gap-2">
         <div class="text-sm text-muted">
-          Mostrando {{ Math.min((table?.tableApi?.getState().pagination.pageIndex || 0) * pagination.pageSize + 1, table?.tableApi?.getFilteredRowModel().rows.length || 0) }} - {{ Math.min(((table?.tableApi?.getState().pagination.pageIndex || 0) + 1) * pagination.pageSize, table?.tableApi?.getFilteredRowModel().rows.length || 0) }} de {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }}
+          Mostrando {{ paginationDisplay.start }} - {{ paginationDisplay.end }} de {{ paginationDisplay.total }}
         </div>
         <UPagination
-          v-if="table?.tableApi && table?.tableApi?.getFilteredRowModel().rows.length > pagination.pageSize"
-          :page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
+          v-if="table.tableApi && table.tableApi.getFilteredRowModel().rows.length > pagination.pageSize"
+          :page="(table.tableApi.getState().pagination.pageIndex || 0) + 1"
           :items-per-page="pagination.pageSize"
-          :total="table?.tableApi?.getFilteredRowModel().rows.length || 0"
+          :total="table.tableApi.getFilteredRowModel().rows.length || 0"
           :sibling-count="1"
           @update:page="setPage"
         />
