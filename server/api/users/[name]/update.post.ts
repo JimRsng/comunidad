@@ -114,6 +114,20 @@ export default defineEventHandler(async (event) => {
     Promise.all(createRiotAccountLogs)
   ]);
 
+  const session = await getUserSession(event);
+
+  if (session.user && (session.user?.twitchLogin !== userResults.twitchLogin
+    || session.user?.twitchDisplay !== userResults.twitchDisplay
+    || session.user?.twitchProfileImage !== userResults.twitchProfileImage)) {
+    const newUserSessionData = {
+      ...session.user,
+      twitchLogin: userResults.twitchLogin,
+      twitchDisplay: userResults.twitchDisplay,
+      twitchProfileImage: userResults.twitchProfileImage
+    };
+    await setUserSession(event, { user: newUserSessionData });
+  }
+
   return {
     user: userResults,
     riotAccounts: riotAccountResults,
