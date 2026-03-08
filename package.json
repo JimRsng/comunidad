@@ -25,9 +25,9 @@
   "homepage": "https://comunidad.jimtracker.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JimRsng/comunidad-jimtracker.git"
+    "url": "git+https://github.com/JimRsng/comunidad.git"
   },
-  "bugs": "https://github.com/JimRsng/comunidad-jimtracker/issues",
+  "bugs": "https://github.com/JimRsng/comunidad/issues",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port=5173 --public",
