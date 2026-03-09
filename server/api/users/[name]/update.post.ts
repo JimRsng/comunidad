@@ -116,7 +116,7 @@ export default defineEventHandler(async (event) => {
 
   const session = await getUserSession(event);
 
-  if (session.user && (session.user?.twitchLogin !== userResults.twitchLogin
+  if (session.user && (session.user.twitchId === userResults.twitchId) && (session.user?.twitchLogin !== userResults.twitchLogin
     || session.user?.twitchDisplay !== userResults.twitchDisplay
     || session.user?.twitchProfileImage !== userResults.twitchProfileImage)) {
     const newUserSessionData = {
@@ -127,6 +127,7 @@ export default defineEventHandler(async (event) => {
     };
     await setUserSession(event, { user: newUserSessionData });
   }
+
 
   return {
     user: userResults,
