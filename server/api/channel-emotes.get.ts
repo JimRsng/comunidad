@@ -1,16 +1,21 @@
+import { getStreamerEmotes } from "streamer-emotes";
+
 export default defineCachedEventHandler(async () => {
-  const streamElementsChannelId = "5932bd53b5034907fbcbcd51";
-  const emotes = await $fetch<StreamElementsEmotes>(`/kappa/v2/channels/${streamElementsChannelId}/emotes`, {
-    baseURL: "https://api.streamelements.com"
-  });
-
-  if (!emotes) return {};
-
   const emoteLookup: Record<string, string> = {};
 
-  for (const [, provider] of Object.entries(emotes) as [string, StreamElementsEmotes[keyof StreamElementsEmotes]][]) {
-    for (const emote of Object.values(provider) as StreamElementsEmotes[keyof StreamElementsEmotes][number][]) {
-      emoteLookup[emote.name] = emote.urls["1"]!;
+  const emotes = await getStreamerEmotes(SITE.twitchLogin, {
+    bttv: true,
+    ffz: true,
+    sevenTV: true,
+    twitch: true
+  });
+
+  if (!emotes) return emoteLookup;
+
+  for (const [_, provider] of Object.entries(emotes)) {
+    const allEmotes = [...(provider.channel || []), ...(provider.global || [])];
+    for (const emote of allEmotes) {
+      if (emote.images[0]) emoteLookup[emote.name] = emote.images[0].url;
     }
   }
 

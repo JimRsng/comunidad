@@ -7,6 +7,7 @@ export const SITE = {
   cdn: import.meta.dev ? "http://localhost:5173/uploads" : "https://cdn.jimtracker.com",
   description: "Tabla de clasificación de League of Legends de la comunidad de JimRising.",
   twitchId: "24534372",
+  twitchLogin: "jimrsng",
   logo: "/images/jimrsng.png",
   github: {
     authors: {

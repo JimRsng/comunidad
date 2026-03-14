@@ -65,6 +65,9 @@ importers:
       sass:
         specifier: ^1.98.0
         version: 1.98.0
+      streamer-emotes:
+        specifier: ^0.1.0
+        version: 0.1.0
       stylelint:
         specifier: ^17.4.0
         version: 17.4.0(typescript@5.9.3)
@@ -4516,6 +4519,9 @@ packages:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
 
+  gql-payload@2.1.0:
+    resolution: {integrity: sha512-9m1dX7bIjJkhBs03MxplUfG1KsQ5S6al5DnzrZrjARF6jWCtRC1DmjGaozbNxe+L1eIZ7k6wLcR0GOQM1+vpzw==}
+
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
@@ -6114,6 +6120,9 @@ packages:
 
   std-env@4.0.0:
     resolution: {integrity: sha512-zUMPtQ/HBY3/50VbpkupYHbRroTRZJPRLvreamgErJVys0ceuzMkD44J/QjqhHjOzK42GQ3QZIeFG1OYfOtKqQ==}
+
+  streamer-emotes@0.1.0:
+    resolution: {integrity: sha512-LtDBhkhvlS2SVPLqeLAhRMr+gX2905qlT9qV3yRelIq89xlF8XxVqWfy1UguGxGJD9zb37XKf9o7IqRSZnTw3g==}
 
   streamx@2.23.0:
     resolution: {integrity: sha512-kn+e44esVfn2Fa/O0CPFcex27fjIL6MkVae0Mm6q+E6f0hWv578YCERbv+4m02cjxvDsPKLnmxral/rR6lBMAg==}
@@ -11208,6 +11217,8 @@ snapshots:
 
   gopd@1.2.0: {}
 
+  gql-payload@2.1.0: {}
+
   graceful-fs@4.2.11: {}
 
   gzip-size@7.0.0:
@@ -13122,6 +13133,11 @@ snapshots:
   std-env@3.10.0: {}
 
   std-env@4.0.0: {}
+
+  streamer-emotes@0.1.0:
+    dependencies:
+      gql-payload: 2.1.0
+      ofetch: 2.0.0-alpha.3
 
   streamx@2.23.0:
     dependencies:
