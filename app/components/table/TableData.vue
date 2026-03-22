@@ -157,7 +157,7 @@ const columns: TableColumn<JimTableData>[] = [
         "value-key": "value",
         "search-input": { placeholder: "Buscar..." }
       }, {
-        "leading": h(Icon, {
+        "leading": () => h(Icon, {
           name: preferences.value.role ? `lol:${preferences.value.role}` : "lucide:circle-dashed",
           class: "w-4 h-4"
         }),
