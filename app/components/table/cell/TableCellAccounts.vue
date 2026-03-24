@@ -33,6 +33,7 @@ const isOnlineChatter = computed(() => {
         >
           <span>{{ data.gameName }} <span class="font-normal text-muted">#{{ data.tagLine }}</span></span>
         </NuxtLink>
+        <CopyButton :value="`${data.gameName}#${data.tagLine}`" class="p-0" />
         <Twemoji
           v-if="data.user.country"
           class="max-w-fit"

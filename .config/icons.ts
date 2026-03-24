@@ -31,5 +31,7 @@ export default [
   "lucide:trending-up",
   "lucide:trending-down",
   "lucide:smile-plus",
-  "lucide:circle-dashed"
+  "lucide:circle-dashed",
+  "lucide:copy-check",
+  "lucide:copy"
 ];
