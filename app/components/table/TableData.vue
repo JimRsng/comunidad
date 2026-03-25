@@ -374,7 +374,7 @@ const countriesSetItems = Array.from(countriesSet).map(country => ({
         :get-row-id="(row) => row.puuid"
         class="flex-1"
         empty="No se encontraron datos"
-        :ui="{ td: 'p-2 text-highlighted text-base', th: 'text-center' }"
+        :ui="{ td: 'p-1.5 text-highlighted text-base', th: 'text-center px-1 py-3' }"
         :pagination-options="{
           getPaginationRowModel: getPaginationRowModel(),
         }"
