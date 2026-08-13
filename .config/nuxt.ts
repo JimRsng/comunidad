@@ -55,7 +55,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    "~/assets/css/main.css",
+    "~/assets/css/ui.tailwind.css",
     "~/assets/scss/app.scss"
   ],
 
@@ -68,13 +68,13 @@ export default defineNuxtConfig({
 
   ui: {
     colorMode: true,
-    fonts: false,
+    fonts: true,
     theme: {
       colors: ["primary", "success", "info", "error"]
     },
     colors: {
-      neutral: "zinc",
-      primary: "emerald"
+      neutral: "slate",
+      primary: "red"
     }
   },
 
@@ -135,6 +135,13 @@ export default defineNuxtConfig({
       autoInit: false,
       stylistic: true
     }
+  },
+
+  fonts: {
+    families: [
+      { name: "Bebas Neue", weights: [400], display: "swap" },
+      { name: "DM Sans", weights: [300, 400, 500, 600], display: "swap" }
+    ]
   },
 
   icon: {

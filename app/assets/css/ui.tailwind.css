@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --color-slate-800: #0D1117;
+  --color-slate-900: #080c10;
+  --color-slate-500: #6e7681;
+  --color-slate-600: #484f58;
+  --color-slate-700: #30363d;
+}
