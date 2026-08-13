@@ -75,8 +75,8 @@ importers:
         specifier: ^17.0.0
         version: 17.0.0(postcss@8.5.26)(stylelint@17.14.1(supports-color@10.2.2)(typescript@6.0.3))
       twisted:
-        specifier: ^1.82.0
-        version: 1.82.0
+        specifier: 1.80.1
+        version: 1.80.1
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -6360,8 +6360,8 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  twisted@1.82.0:
-    resolution: {integrity: sha512-Bs4eX0nOkP2W8gZX0mPMncJXMDcV32KFFRpHhdj8LT9KC84QadtGvv19zoVnp16VA/MUmHAASYSs2oOmKT8keQ==}
+  twisted@1.80.1:
+    resolution: {integrity: sha512-cozGnm1BQqfPMyP55pm9LHYrFJTpRNl22ug0e/fhzeP2GJvlnWFxBpvCl5SnBN398WChzDKai6kOGUGZWtOKVA==}
     engines: {node: '>=18.0.0'}
 
   type-check@0.4.0:
@@ -13691,7 +13691,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  twisted@1.82.0:
+  twisted@1.80.1:
     dependencies:
       promise-queue: 2.2.5
 
