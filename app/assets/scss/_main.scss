@@ -29,3 +29,8 @@ img {
   width: calc(var(--spacing) * 6);
   height: calc(var(--spacing) * 6)
 }
+
+.nuxt-loading-indicator {
+  background: repeating-linear-gradient(to right, var(--ui-primary) 0%, var(--ui-primary) 50%, var(--ui-bg) 100%)!important;
+  box-shadow: 0 0 10px rgb(255 255 255 / 50%);
+}
