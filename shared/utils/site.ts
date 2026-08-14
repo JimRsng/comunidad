@@ -1,5 +1,4 @@
 export const SITE = {
-  key: "comunidad",
   title: "Comunidad JimRising Tracker",
   name: "Comunidad JimTracker",
   rootDomain: "jimtracker.com",

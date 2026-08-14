@@ -26,7 +26,7 @@ const userMenu = computed<DropdownMenuItem[][]>(() => [
   ]
 ]);
 
-const { pages: navPages, bodyPages } = useNav();
+const { pages: navPages, bodyPages } = await useNavbar();
 </script>
 
 <template>
