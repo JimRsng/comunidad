@@ -138,7 +138,7 @@ onUnmounted(() => {
 <template>
   <main v-if="userInfo" class="relative">
     <div class="grid lg:grid-cols-5 lg:grid-rows-[auto_1fr] md:grid-cols-3 gap-4">
-      <div class="row-span-2 flex flex-col gap-1 md:sticky md:top-21 md:self-start">
+      <div class="row-span-2 flex flex-col gap-1 md:sticky md:top-35 md:self-start">
         <h1 class="mb-1 font-bold text-3xl wrap-anywhere md:text-start text-center">
           {{ getFixedTwitchDisplayName(userInfo.twitchDisplay, userInfo.twitchLogin) }}
           <UPopover v-if="userInfo.country" mode="hover" :content="{ side: 'top' }" arrow class="inline-flex items-center align-bottom">
