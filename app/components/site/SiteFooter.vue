@@ -11,7 +11,18 @@ const timeAgo = useTimeAgoIntl(buildInfo.time, {
 </script>
 
 <template>
-  <UFooter class="border-t border-default">
+  <UFooter id="footer" :ui="{ top: 'p-0!', center: 'm-0!', left: 'm-0!', container: 'bg-elevated' }">
+    <template #top>
+      <USeparator
+        class="-mb-3.5"
+        :ui="{ border: 'border-primary/30' }"
+        :avatar="{
+          src: SITE.logo,
+          alt: 'JimRising',
+          size: 'sm',
+        }"
+      />
+    </template>
     <template #left>
       <div class="flex flex-col gap-2 lg:gap-1 lg:text-left text-center">
         <div class="flex flex-col lg:flex-row items-center gap-2">
