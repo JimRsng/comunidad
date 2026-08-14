@@ -16,6 +16,8 @@ export default defineAppConfig({
     },
     dropdownMenu: {
       slots: {
+        content: "bg-elevated border border-accented",
+        viewport: "divide-accented",
         arrow: "fill-current"
       }
     }

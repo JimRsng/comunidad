@@ -13,7 +13,10 @@ const userMenu = computed<DropdownMenuItem[][]>(() => [
     {
       label: "Perfil",
       icon: "lucide:user",
-      to: `/u/${user.value?.twitchLogin}`
+      to: `/u/${user.value?.twitchLogin}`,
+      ui: {
+        item: "data-highlighted:before:bg-accented/50"
+      }
     }
   ],
   [
