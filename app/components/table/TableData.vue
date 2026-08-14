@@ -112,7 +112,8 @@ const columns: TableColumn<JimTableData>[] = [
         "variant": "subtle",
         "value-key": "value",
         "items": uniqueRegionMap,
-        "search-input": { placeholder: "Buscar..." }
+        "search-input": { placeholder: "Buscar..." },
+        "ui": { placeholder: "text-default" }
       });
     },
     cell: ({ row }) => h(TableCellRegion, { data: row.original }),
@@ -155,7 +156,8 @@ const columns: TableColumn<JimTableData>[] = [
         "color": "neutral",
         "variant": "subtle",
         "value-key": "value",
-        "search-input": { placeholder: "Buscar..." }
+        "search-input": { placeholder: "Buscar..." },
+        "ui": { placeholder: "text-default" }
       }, {
         "leading": () => h(Icon, {
           name: preferences.value.role ? `lol:${preferences.value.role}` : "lucide:circle-dashed",

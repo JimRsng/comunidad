@@ -80,7 +80,7 @@ const { pages: navPages, bodyPages } = await useNavbar();
       color="neutral"
       :ui="{
         list: 'gap-2',
-        link: 'text-md hover:before:bg-accented/50 data-active:before:bg-accented/75 before:border before:border-accented before:bg-elevated',
+        link: 'text-md hover:before:bg-accented/50 data-active:before:bg-accented before:border before:border-accented before:bg-elevated',
       }"
     />
 
@@ -99,7 +99,7 @@ const { pages: navPages, bodyPages } = await useNavbar();
           variant="subtle"
           color="neutral"
           :ui="{
-            base: 'text-md hover:bg-accented/50 data-active:bg-accented/75',
+            base: 'text-md hover:bg-accented/50 data-active:bg-accented',
           }"
         >
           <template #leading>

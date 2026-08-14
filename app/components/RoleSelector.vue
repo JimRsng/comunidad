@@ -67,7 +67,7 @@ const tablePopover = useTablePopover();
 <template>
   <div class="flex items-center justify-center gap-1">
     <UPopover v-if="isOwner" v-model:open="modalRole1" arrow @update:open="handleModalOwnerUpdate">
-      <div v-if="selectedRole1 || isOwner" class="*:flex rounded-full" :class="{ 'border p-1 border-accented hover:bg-accented/50': isOwner }">
+      <div v-if="selectedRole1 || isOwner" class="*:flex rounded-full" :class="{ 'border p-1 border-accented hover:bg-accented': isOwner }">
         <span v-if="selectedRole1">
           <Icon
             :name="`lol:${selectedRole1}`"
@@ -102,7 +102,7 @@ const tablePopover = useTablePopover();
       </div>
     </div>
     <UPopover v-if="isOwner && selectedRole1 !== 'fill' && (selectedRole2 || isOwner)" v-model:open="modalRole2" arrow @update:open="handleModalOwnerUpdate">
-      <div class="*:flex rounded-full" :class="{ 'border p-1 border-accented hover:bg-accented/50': isOwner }">
+      <div class="*:flex rounded-full" :class="{ 'border p-1 border-accented hover:bg-accented': isOwner }">
         <span v-if="selectedRole2">
           <Icon
             :name="`lol:${selectedRole2}`"
