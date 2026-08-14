@@ -33,8 +33,8 @@ const { pages: navPages, bodyPages } = await useNavbar();
   <UHeader>
     <template #title>
       <div class="flex items-center gap-2">
-        <img :src="SITE.logo" class="h-10 w-auto light:invert" alt="JimRising">
-        <h1 class="font-normal text-lg uppercase font-bebas tracking-widest">JimRising</h1>
+        <img :src="SITE.logo" class="h-10 w-auto light:invert" :alt="SITE.main">
+        <h1 class="font-normal text-lg uppercase font-bebas tracking-widest">{{ SITE.main }}</h1>
       </div>
     </template>
     <UNavigationMenu
@@ -76,7 +76,7 @@ const { pages: navPages, bodyPages } = await useNavbar();
   </UHeader>
   <UHeader class="top-16 h-14" :toggle="false">
     <UNavigationMenu
-      :items="bodyPages.apps?.find(item => item.label === 'Comunidad')?.children || []"
+      :items="bodyPages.apps?.find(item => item.label === SITE.name)?.children || []"
       color="neutral"
       :ui="{
         list: 'gap-2',
@@ -86,7 +86,7 @@ const { pages: navPages, bodyPages } = await useNavbar();
 
     <template #title>
       <div class="flex items-center gap-2">
-        <h2>Comunidad</h2>
+        <h2>{{ SITE.name }}</h2>
       </div>
     </template>
 

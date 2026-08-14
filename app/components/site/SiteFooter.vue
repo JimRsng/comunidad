@@ -17,7 +17,7 @@ const timeAgo = useTimeAgoIntl(buildInfo.time, {
         color="primary"
         :avatar="{
           src: SITE.logo,
-          alt: 'JimRising',
+          alt: SITE.main,
           size: 'sm',
           ui: { image: 'light:invert' },
         }"
@@ -26,7 +26,7 @@ const timeAgo = useTimeAgoIntl(buildInfo.time, {
     <template #left>
       <div class="flex flex-col gap-2 lg:gap-1 lg:text-left text-center">
         <div class="flex flex-col lg:flex-row items-center gap-2">
-          <p class="text-sm">{{ SITE.name }} © {{ new Date().getFullYear() }}</p>
+          <p class="text-sm">{{ SITE.name }} · {{ SITE.main }} © {{ new Date().getFullYear() }}</p>
           <UPopover mode="hover" :content="{ side: 'top' }" arrow>
             <NuxtLink :to="`${SITE.github.repository}/commit/${buildInfo.commit}`" target="_blank">
               <UBadge
