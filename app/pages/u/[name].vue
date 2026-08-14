@@ -263,11 +263,11 @@ onUnmounted(() => {
                 </div>
               </div>
             </template>
-            <UButton v-if="isOwner && riotAccounts.length < maxAccounts" variant="soft" class="bg-muted border-2 border-dashed border-accented p-6 flex flex-col items-center justify-center text-center h-full hover:border-primary transition-colors group" @click="addRiotAccount">
-              <div v-if="!verifying" class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 group-hover:scale-[1.1] transition-transform">
+            <UButton v-if="isOwner && riotAccounts.length < maxAccounts" color="secondary" variant="soft" class="bg-muted border-2 border-dashed border-accented p-6 flex flex-col items-center justify-center text-center h-full hover:border-secondary transition-colors group" @click="addRiotAccount">
+              <div v-if="!verifying" class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mb-4 group-hover:scale-[1.1] transition-transform">
                 <Icon name="lucide:plus" class="w-8 h-8" />
               </div>
-              <div v-else class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4 animate-spin">
+              <div v-else class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mb-4 animate-spin">
                 <Icon name="lucide:loader-circle" class="w-8 h-8" />
               </div>
               <span class="font-medium">Agregar Riot Account</span>

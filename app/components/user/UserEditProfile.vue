@@ -63,7 +63,7 @@ const deleteAccount = async () => {
 
 <template>
   <UModal title="Editar Perfil">
-    <UButton label="Editar perfil" icon="lucide:pencil" variant="subtle" class="py-4" />
+    <UButton label="Editar perfil" icon="lucide:pencil" color="secondary" variant="subtle" class="py-4" />
     <template #body="{ close }">
       <form v-if="user" class="space-y-2" @submit.prevent="editProfile(); close();">
         <h3 class="font-semibold">Información</h3>
@@ -87,7 +87,7 @@ const deleteAccount = async () => {
             autoresize
           />
         </UFormField>
-        <UButton type="submit" label="Guardar cambios" variant="subtle" :loading="isEditing" :disabled="isEditing" block />
+        <UButton type="submit" label="Guardar cambios" color="secondary" variant="subtle" :loading="isEditing" :disabled="isEditing" block />
       </form>
     </template>
     <template #footer>
