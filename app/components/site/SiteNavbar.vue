@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DropdownMenuItem, NavigationMenuItem } from "@nuxt/ui";
+import type { DropdownMenuItem } from "@nuxt/ui";
 
 const { loggedIn, user, clear, openInPopup } = useUserSession();
 
@@ -7,21 +7,6 @@ watch(loggedIn, (value) => {
   if (!value || !user.value?.twitchLogin) return;
   navigateTo(`/u/${user.value.twitchLogin}`);
 });
-
-const pages: NavigationMenuItem[] = [
-  {
-    label: "Tabla",
-    to: "/"
-  },
-  {
-    label: "Actividad",
-    to: "/actividad"
-  },
-  {
-    label: "JimTracker",
-    to: "https://" + SITE.rootDomain
-  }
-];
 
 const userMenu = computed<DropdownMenuItem[][]>(() => [
   [
@@ -40,15 +25,58 @@ const userMenu = computed<DropdownMenuItem[][]>(() => [
     }
   ]
 ]);
+
+const { pages: navPages, bodyPages } = useNav();
 </script>
 
 <template>
-  <UHeader
-    class="top-0 py-1 z-50 border-0 backdrop-blur-sm border-b border-default bg-elevated/50 shadow-sm"
-    toggle-side="left"
-  >
+  <UHeader>
+    <template #title>
+      <div class="flex items-center gap-2">
+        <img :src="SITE.logo" class="h-10 w-auto light:invert" alt="JimRising">
+        <h1 class="text-lg font-bold uppercase">JimRising</h1>
+      </div>
+    </template>
     <UNavigationMenu
-      :items="pages"
+      id="nav-main"
+      :items="navPages.main"
+      variant="link"
+      :highlight="false"
+      class="w-full justify-center"
+      :ui="{ linkLabel: 'uppercase', item: 'p-0' }"
+    />
+    <USeparator orientation="vertical" class="h-8 mx-4" :ui="{ border: 'border-primary/30' }" />
+    <UNavigationMenu
+      :items="navPages.apps"
+      variant="link"
+      :highlight="false"
+      class="w-full justify-center"
+      :ui="{ linkLabel: 'uppercase', item: 'p-0' }"
+    />
+    <template #body>
+      <UNavigationMenu
+        id="nav-body-main"
+        :items="bodyPages.main"
+        variant="link"
+        orientation="vertical"
+        :highlight="false"
+        class="w-full justify-center"
+        :ui="{ linkLabel: 'uppercase' }"
+      />
+      <USeparator orientation="horizontal" class="my-4" :ui="{ border: 'border-primary/30' }" />
+      <UNavigationMenu
+        :items="bodyPages.apps"
+        variant="link"
+        orientation="vertical"
+        :highlight="false"
+        class="w-full justify-center"
+        :ui="{ linkLabel: 'uppercase' }"
+      />
+    </template>
+  </UHeader>
+  <UHeader class="top-16 h-14" :toggle="false">
+    <UNavigationMenu
+      :items="bodyPages.apps?.find(item => item.label === 'Comunidad')?.children || []"
       color="neutral"
       :ui="{
         list: 'gap-2',
@@ -58,8 +86,7 @@ const userMenu = computed<DropdownMenuItem[][]>(() => [
 
     <template #title>
       <div class="flex items-center gap-2">
-        <img :src="SITE.logo" :alt="SITE.name" class="h-8 w-auto light:invert">
-        <h1>Comunidad</h1>
+        <h2>Comunidad</h2>
       </div>
     </template>
 
@@ -93,10 +120,6 @@ const userMenu = computed<DropdownMenuItem[][]>(() => [
         }"
         @click="openInPopup('/auth/twitch')"
       />
-    </template>
-
-    <template #body>
-      <UNavigationMenu :items="pages" orientation="vertical" class="-mx-2.5" />
     </template>
   </UHeader>
 </template>
