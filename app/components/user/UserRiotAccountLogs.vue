@@ -158,7 +158,7 @@ watch(enrichedLogs, () => {
       </TransitionGroup>
       <div v-if="hasMore" class="flex justify-center">
         <UButton
-          variant="soft"
+          variant="subtle"
           color="neutral"
           :loading="isLoading"
           :disabled="isLoading"

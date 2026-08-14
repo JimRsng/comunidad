@@ -11,7 +11,7 @@ export default defineAppConfig({
     popover: {
       slots: {
         arrow: "fill-current",
-        content: "py-2 px-3"
+        content: "py-2 px-3 bg-elevated border border-accented"
       }
     },
     dropdownMenu: {
