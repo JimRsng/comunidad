@@ -14,7 +14,6 @@ const timeAgo = useTimeAgoIntl(buildInfo.time, {
   <UFooter id="footer" :ui="{ top: 'p-0!', center: 'm-0!', left: 'm-0!' }">
     <template #top>
       <USeparator
-        class="-mb-3.5"
         :ui="{ border: 'border-primary/30' }"
         :avatar="{
           src: SITE.logo,
