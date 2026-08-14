@@ -19,6 +19,18 @@ export default defineAppConfig({
         content: "bg-elevated border border-accented",
         viewport: "divide-accented",
         arrow: "fill-current"
+      },
+      variants: {
+        active: {
+          false: {
+            item: "data-highlighted:before:bg-accented/50"
+          }
+        }
+      }
+    },
+    separator: {
+      slots: {
+        border: "border-primary/30"
       }
     }
   }
