@@ -43,7 +43,7 @@ const timeAgo = useTimeAgoIntl(buildInfo.time, {
           </UPopover>
         </div>
         <p class="text-muted text-sm max-w-150 lg:max-w-full">
-          JimTracker no está respaldado por Riot Games y no refleja las opiniones o puntos de vista de Riot Games ni de nadie involucrado oficialmente en la producción o gestión de League of Legends.
+          {{ SITE.name }} ({{ SITE.main }}) no está respaldado por Riot Games y no refleja las opiniones o puntos de vista de Riot Games ni de nadie involucrado oficialmente en la producción o gestión de League of Legends.
         </p>
       </div>
     </template>

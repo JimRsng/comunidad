@@ -1,4 +1,4 @@
-# Comunidad JimTracker
+# Comunidad JimRising
 
 A full-stack serverless League of Legends multi-regional leaderboard tracker for [JimRsng](https://www.twitch.tv/jimrsng)'s Twitch community.
 
@@ -17,15 +17,19 @@ A full-stack serverless League of Legends multi-regional leaderboard tracker for
 ## Screenshots
 
 ### Leaderboard Table
+
 ![table](https://github.com/user-attachments/assets/491eddd1-5185-4ead-aa26-55ce6051b785)
 
 ### Distribution Section
+
 ![distribution](https://github.com/user-attachments/assets/cfc945e3-8226-436d-926a-3e6104a28c56)
 
 ### Profile Page
+
 ![profile](https://github.com/user-attachments/assets/6d9a197e-6016-420b-957a-5e1638fc26cc)
 
 ### Activity Page
+
 ![activity](https://github.com/user-attachments/assets/65559907-aef2-4a93-8243-28abb84e342f)
 
 ## Tech stack
@@ -66,7 +70,7 @@ Open Source app and published under [MIT License](https://github.com/JimRsng/com
 # Install dependencies
 pnpm install
 
-# Datebase migration
+# Database migration
 pnpm db:migrate
 
 # Build
@@ -80,4 +84,3 @@ pnpm test:types
 ```
 
 </details>
-
