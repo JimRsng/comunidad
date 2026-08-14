@@ -22,6 +22,9 @@ export default defineAppConfig({
       },
       variants: {
         active: {
+          true: {
+            item: "before:bg-accented/50"
+          },
           false: {
             item: "data-highlighted:before:bg-accented/50"
           }
