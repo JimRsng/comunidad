@@ -49,6 +49,11 @@ export default defineAppConfig({
         input: "border-accented",
         item: "data-highlighted:not-data-disabled:before:bg-accented/50"
       }
+    },
+    table: {
+      slots: {
+        tbody: "divide-accented/30"
+      }
     }
   }
 });
