@@ -39,6 +39,13 @@ export default defineAppConfig({
           }
         }
       }
+    },
+    selectMenu: {
+      slots: {
+        content: "bg-elevated border border-accented",
+        input: "border-accented",
+        item: "data-highlighted:not-data-disabled:before:bg-accented/50"
+      }
     }
   }
 });
