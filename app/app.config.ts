@@ -29,8 +29,15 @@ export default defineAppConfig({
       }
     },
     separator: {
-      slots: {
-        border: "border-primary/30"
+      variants: {
+        color: {
+          primary: {
+            border: "border-primary/30"
+          },
+          neutral: {
+            border: "border-accented"
+          }
+        }
       }
     }
   }
