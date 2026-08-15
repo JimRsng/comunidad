@@ -77,11 +77,8 @@ const { pages: navPages, bodyPages } = await useNavbar();
   <UHeader class="top-16 h-14" :toggle="false">
     <UNavigationMenu
       :items="bodyPages.apps?.find(item => item.label === SITE.name)?.children || []"
-      color="neutral"
-      :ui="{
-        list: 'gap-2',
-        link: 'text-md hover:before:bg-accented/50 data-active:before:bg-accented before:border before:border-accented before:bg-elevated',
-      }"
+      variant="link"
+      arrow
     />
 
     <template #title>

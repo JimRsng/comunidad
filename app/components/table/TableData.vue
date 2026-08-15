@@ -113,7 +113,8 @@ const columns: TableColumn<JimTableData>[] = [
         "value-key": "value",
         "items": uniqueRegionMap,
         "search-input": { placeholder: "Buscar..." },
-        "ui": { placeholder: "text-default" }
+        "ui": { placeholder: "text-default" },
+        "arrow": true
       });
     },
     cell: ({ row }) => h(TableCellRegion, { data: row.original }),
@@ -157,7 +158,8 @@ const columns: TableColumn<JimTableData>[] = [
         "variant": "subtle",
         "value-key": "value",
         "search-input": { placeholder: "Buscar..." },
-        "ui": { placeholder: "text-default" }
+        "ui": { placeholder: "text-default" },
+        "arrow": true
       }, {
         "leading": () => h(Icon, {
           name: preferences.value.role ? `lol:${preferences.value.role}` : "lucide:circle-dashed",
@@ -335,6 +337,7 @@ const countriesSetItems = Array.from(countriesSet).map(country => ({
         value-key="value"
         :search-input="{ placeholder: 'Buscar...', icon: 'lucide:search' }"
         :items="countriesSetItems"
+        arrow
       >
         <template #leading>
           <Twemoji

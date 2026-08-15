@@ -10,7 +10,7 @@ export default defineAppConfig({
     },
     popover: {
       slots: {
-        arrow: "fill-current",
+        arrow: "fill-current text-[var(--ui-bg-accented)]",
         content: "py-2 px-3 bg-elevated border border-accented"
       }
     },
@@ -18,7 +18,7 @@ export default defineAppConfig({
       slots: {
         content: "bg-elevated border border-accented",
         viewport: "divide-accented",
-        arrow: "fill-current"
+        arrow: "fill-current text-[var(--ui-bg-accented)]"
       },
       variants: {
         active: {
@@ -45,6 +45,7 @@ export default defineAppConfig({
     },
     selectMenu: {
       slots: {
+        arrow: "fill-current text-[var(--ui-bg-accented)]",
         content: "bg-elevated border border-accented",
         input: "border-accented",
         item: "data-highlighted:not-data-disabled:before:bg-accented/50"
