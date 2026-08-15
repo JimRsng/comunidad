@@ -74,7 +74,7 @@ const { pages: navPages, bodyPages } = await useNavbar();
       />
     </template>
   </UHeader>
-  <UHeader class="top-16 h-8" :toggle="false">
+  <UHeader class="top-14 h-8" :toggle="false">
     <UNavigationMenu
       :items="bodyPages.apps?.find(item => item.label === SITE.name)?.children || []"
       variant="link"
@@ -88,7 +88,7 @@ const { pages: navPages, bodyPages } = await useNavbar();
     </template>
 
     <template #right>
-      <UColorModeButton />
+      <UColorModeButton size="sm" />
       <UDropdownMenu v-if="user" :items="userMenu" :content="{ align: 'end', side: 'bottom', sideOffset: 8 }" :modal="false" arrow>
         <UButton
           :label="user.twitchDisplay"
@@ -96,12 +96,13 @@ const { pages: navPages, bodyPages } = await useNavbar();
           variant="subtle"
           color="neutral"
           :ui="{
-            base: 'text-md hover:bg-accented/50 data-active:bg-accented',
+            base: 'hover:bg-accented/50 data-active:bg-accented',
           }"
+          size="sm"
         >
           <template #leading>
-            <UAvatar v-if="user.twitchProfileImage" :src="user.twitchProfileImage" :alt="user.twitchDisplay" size="2xs" />
-            <UAvatar v-else :alt="user.twitchDisplay" size="2xs" class="bg-accented" />
+            <UAvatar v-if="user.twitchProfileImage" :src="user.twitchProfileImage" :alt="user.twitchDisplay" size="3xs" />
+            <UAvatar v-else :alt="user.twitchDisplay" size="3xs" class="bg-accented" />
           </template>
         </UButton>
       </UDropdownMenu>
@@ -113,8 +114,9 @@ const { pages: navPages, bodyPages } = await useNavbar();
         color="neutral"
         :ui="{
           leadingIcon: 'text-white',
-          base: 'text-white text-md dark:bg-violet-600 light:bg-violet-800 dark:hover:bg-violet-700 light:hover:bg-violet-900',
+          base: 'text-white dark:bg-violet-600 light:bg-violet-800 dark:hover:bg-violet-700 light:hover:bg-violet-900',
         }"
+        size="sm"
         @click="openInPopup('/auth/twitch')"
       />
     </template>
