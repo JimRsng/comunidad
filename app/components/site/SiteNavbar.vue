@@ -74,51 +74,51 @@ const { pages: navPages, bodyPages } = await useNavbar();
       />
     </template>
   </UHeader>
-  <UHeader class="top-14 h-8" :toggle="false">
-    <UNavigationMenu
-      :items="bodyPages.apps?.find(item => item.label === SITE.name)?.children || []"
-      variant="link"
-      arrow
-    />
+  <SiteHeaderToggler>
+    <UHeader :toggle="false">
+      <UNavigationMenu
+        :items="bodyPages.apps?.find(item => item.label === SITE.name)?.children || []"
+        variant="link"
+        arrow
+      />
 
-    <template #title>
-      <div class="flex items-center gap-2">
-        <h2>{{ SITE.name }}</h2>
-      </div>
-    </template>
+      <template #title>
+        <div class="flex items-center gap-2">
+          <h2>{{ SITE.name }}</h2>
+        </div>
+      </template>
 
-    <template #right>
-      <UColorModeButton size="sm" />
-      <UDropdownMenu v-if="user" :items="userMenu" :content="{ align: 'end', side: 'bottom', sideOffset: 8 }" :modal="false" arrow>
+      <template #right>
+        <UColorModeButton />
+        <UDropdownMenu v-if="user" :items="userMenu" :content="{ align: 'end', side: 'bottom', sideOffset: 8 }" :modal="false" arrow>
+          <UButton
+            :label="user.twitchDisplay"
+            trailing-icon="lucide:chevron-down"
+            variant="subtle"
+            color="neutral"
+            :ui="{
+              base: 'text-md hover:bg-accented/50 data-active:bg-accented',
+            }"
+          >
+            <template #leading>
+              <UAvatar v-if="user.twitchProfileImage" :src="user.twitchProfileImage" :alt="user.twitchDisplay" size="2xs" />
+              <UAvatar v-else :alt="user.twitchDisplay" size="2xs" class="bg-accented" />
+            </template>
+          </UButton>
+        </UDropdownMenu>
         <UButton
-          :label="user.twitchDisplay"
-          trailing-icon="lucide:chevron-down"
-          variant="subtle"
+          v-else
+          label="Unirse"
+          icon="simple-icons:twitch"
+          variant="soft"
           color="neutral"
           :ui="{
-            base: 'hover:bg-accented/50 data-active:bg-accented',
+            leadingIcon: 'text-white',
+            base: 'text-white text-md dark:bg-violet-600 light:bg-violet-800 dark:hover:bg-violet-700 light:hover:bg-violet-900',
           }"
-          size="sm"
-        >
-          <template #leading>
-            <UAvatar v-if="user.twitchProfileImage" :src="user.twitchProfileImage" :alt="user.twitchDisplay" size="3xs" />
-            <UAvatar v-else :alt="user.twitchDisplay" size="3xs" class="bg-accented" />
-          </template>
-        </UButton>
-      </UDropdownMenu>
-      <UButton
-        v-else
-        label="Unirse"
-        icon="simple-icons:twitch"
-        variant="soft"
-        color="neutral"
-        :ui="{
-          leadingIcon: 'text-white',
-          base: 'text-white dark:bg-violet-600 light:bg-violet-800 dark:hover:bg-violet-700 light:hover:bg-violet-900',
-        }"
-        size="sm"
-        @click="openInPopup('/auth/twitch')"
-      />
-    </template>
-  </UHeader>
+          @click="openInPopup('/auth/twitch')"
+        />
+      </template>
+    </UHeader>
+  </SiteHeaderToggler>
 </template>
