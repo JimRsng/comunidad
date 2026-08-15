@@ -16,8 +16,8 @@ const toggleSubHeader = () => {
 
 <template>
   <div
-    class="fixed flex justify-center z-1 transition-all"
-    :class="subHeader ? 'top-24.5 hover:top-26' : 'top-12.5 hover:top-14 duration-200'"
+    class="fixed flex justify-center z-1 transition-all duration-300"
+    :class="subHeader ? 'top-24.5 hover:top-26' : 'top-12.5 hover:top-14'"
   >
     <UButton
       v-if="subHeader"
