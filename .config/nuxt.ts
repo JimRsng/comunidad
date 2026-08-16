@@ -42,7 +42,9 @@ export default defineNuxtConfig({
         { rel: "preconnect", href: "https://static-cdn.jtvnw.net" },
         { rel: "preconnect", href: SITE.cdn },
         { rel: "preconnect", href: "https://cdn.jsdelivr.net" },
-        { rel: "preconnect", href: "https://cdn.7tv.app" }
+        { rel: "preconnect", href: "https://cdn.7tv.app" },
+        { rel: "preload", href: "https://cdn.jimtracker.com/fonts/BebasNeue.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
+        { rel: "preload", href: "https://cdn.jimtracker.com/fonts/DMSans.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" }
       ],
       meta: [
         { name: "robots", content: "index, follow" },
@@ -68,7 +70,7 @@ export default defineNuxtConfig({
 
   ui: {
     colorMode: true,
-    fonts: true,
+    fonts: false,
     theme: {
       colors: ["primary", "secondary", "success", "info", "error"]
     },
@@ -136,13 +138,6 @@ export default defineNuxtConfig({
       autoInit: false,
       stylistic: true
     }
-  },
-
-  fonts: {
-    families: [
-      { name: "Bebas Neue", weights: [400], display: "swap" },
-      { name: "DM Sans", weights: [300, 400, 500, 600], display: "swap" }
-    ]
   },
 
   icon: {
