@@ -180,7 +180,9 @@ onUnmounted(() => {
         </UButton>
         <div class="text-xs py-1">
           <span class="font-semibold">Se unió: </span>
-          <span class="font-light">{{ new Date(userInfo.createdAt).toLocaleDateString("es-MX", { day: "numeric", month: "short", year: "numeric" }) }}</span>
+          <span class="font-light">
+            <NuxtTime :datetime="userInfo.createdAt" locale="es-MX" day="numeric" month="short" year="numeric" />
+          </span>
         </div>
       </div>
       <div class="lg:col-span-4 md:col-span-2 space-y-4">
