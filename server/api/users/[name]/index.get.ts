@@ -11,7 +11,8 @@ export default defineEventHandler(async (event) => {
     country: tables.users.country,
     bio: tables.users.bio,
     badges: tables.users.badges,
-    updatedAt: tables.users.updatedAt
+    updatedAt: tables.users.updatedAt,
+    createdAt: tables.users.createdAt
   }).from(tables.users).where(eq(tables.users.twitchLogin, params.name.toLowerCase())).get();
 
   if (!user) {
