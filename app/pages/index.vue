@@ -15,7 +15,7 @@ const { data: chatters } = await useLazyFetch("/api/chatters", {
 const { user, loggedIn } = useUserSession();
 
 const currentUserInfo = computed(() => data.value.find(item => item.user.twitchLogin === user.value?.twitchLogin));
-const updateCooldown = import.meta.dev ? 10 : 1800; // segundos (30 minutos)
+const updateCooldown = import.meta.dev ? 10 : 3600; // segundos (1 hora)
 const now = ref(Date.now());
 const lastUpdate = computed(() => currentUserInfo.value?.user?.updatedAt ? new Date(currentUserInfo.value.user.updatedAt).getTime() : 0);
 const secondsSinceUpdate = computed(() => Math.floor((now.value - lastUpdate.value) / 1000));
