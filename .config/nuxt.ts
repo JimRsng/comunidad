@@ -101,20 +101,13 @@ export default defineNuxtConfig({
     typedPages: true
   },
 
-  compatibilityDate: "2026-01-10",
+  compatibilityDate: "2026-08-22",
 
   nitro: {
     prerender: {
       autoSubfolderIndex: false,
       crawlLinks: false,
       routes: ["/sitemap.xml"]
-    },
-    cloudflare: {
-      pages: {
-        routes: {
-          exclude: ["/images/*"]
-        }
-      }
     },
     experimental: {
       tasks: true
