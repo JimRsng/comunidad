@@ -11,11 +11,8 @@ interface NavbarResponse {
 }
 
 export const useNavbar = async () => {
-  const { data } = await useFetch<NavbarResponse>("/api/navbar", {
+  const { data } = await useFetch<NavbarResponse>("/navbar/comunidad.json", {
     baseURL: "https://site.jimtracker.com",
-    query: {
-      app: "comunidad"
-    },
     key: "navbar",
     getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key]
   });
