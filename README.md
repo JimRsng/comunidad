@@ -18,19 +18,19 @@ A full-stack serverless League of Legends multi-regional leaderboard tracker for
 
 ### Leaderboard Table
 
-![table](https://github.com/user-attachments/assets/491eddd1-5185-4ead-aa26-55ce6051b785)
+![table](https://github.com/user-attachments/assets/f10e5211-0b6a-4f14-8c82-4e90f9d4bdf0)
 
 ### Distribution Section
 
-![distribution](https://github.com/user-attachments/assets/cfc945e3-8226-436d-926a-3e6104a28c56)
+![distribution](https://github.com/user-attachments/assets/3f071af7-0027-488f-86a2-287ff6f0f1ce)
 
 ### Profile Page
 
-![profile](https://github.com/user-attachments/assets/6d9a197e-6016-420b-957a-5e1638fc26cc)
+![profile](https://github.com/user-attachments/assets/94526717-756f-46a0-986d-0b6e91280358)
 
 ### Activity Page
 
-![activity](https://github.com/user-attachments/assets/65559907-aef2-4a93-8243-28abb84e342f)
+![activity](https://github.com/user-attachments/assets/d67de9a4-f2de-4dc3-a984-cafb53841a64)
 
 ## Tech stack
 
